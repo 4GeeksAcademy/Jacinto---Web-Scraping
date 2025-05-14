@@ -43,8 +43,6 @@ if response.status_code == 200:
     df_songs = df_songs.dropna(subset=["Streams"])
     
     #Limpiamos los datos 
-    #df_songs["Streams"] = df_songs["Streams"].astype(str).str.replace(r"\*?$", "", regex=True)
-
     df_songs["Streams"] = df_songs["Streams"].astype(str).str.replace("B", "", regex=True)
     df_songs["Streams"] = pd.to_numeric(df_songs["Streams"], errors="coerce")
 
